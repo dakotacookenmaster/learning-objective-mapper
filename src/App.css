@@ -1,0 +1,17 @@
+.courseName {
+  color: #727272;
+  font-size: 15px;
+}
+
+.courseCode {
+  font-size: 20px;
+}
+
+.courseNode:hover {
+  cursor: pointer;
+}
+
+.react-flow__attribution {
+  background: none;
+  right: 10px;
+}

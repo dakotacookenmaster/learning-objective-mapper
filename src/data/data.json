@@ -1,0 +1,439 @@
+{
+    "name": "BS Computer Science",
+    "courses": [
+        {
+            "name": "Admission to the School of Computing",
+            "code": "SoC-ADM",
+            "prerequisites": {}
+        },
+        {
+            "name": "English ACT >= 18 / Writing SAT >= 450 / RSAT >= 25",
+            "code": "English ACT >= 18",
+            "prerequisites": {},
+            "nondepartmental": true
+        },
+        {
+            "name": "Math ACT >= 22 / SAT >= 520 / RSAT >= 540",
+            "code": "Math ACT >= 22",
+            "prerequisites": {},
+            "nondepartmental": true
+        },
+        {
+            "name": "Math ACT >= 24 / SAT >= 600 / RSAT >= 620",
+            "code": "Math ACT >= 24",
+            "prerequisites": {},
+            "nondepartmental": true
+        },
+        {
+            "name": "Math ACT >= 16 / SAT >= 390 / RSAT >= 430",
+            "code": "Math ACT >= 16",
+            "prerequisites": {},
+            "nondepartmental": true
+        },
+        {
+            "name": "Introduction to Algebra & Statistics",
+            "code": "MATH-081",
+            "prerequisites": {},
+            "nondepartmental": true
+        },
+        {
+            "name": "College Algebra",
+            "code": "MATH-117",
+            "prerequisites": {
+                "or": [
+                    "Math ACT >= 16",
+                    "MATH-081"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "Southern Connections",
+            "code": "NOND-101",
+            "prerequisites": {}
+        },
+        {
+            "name": "Precalculus Algebra",
+            "code": "MATH-120",
+            "prerequisites": {
+                "or": [
+                    "Math ACT >= 22",
+                    "MATH-117"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "UNIX Systems Administration",
+            "code": "CPTR-254",
+            "prerequisites": {
+                "or": [
+                    "CPTR-212",
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Windows Administration",
+            "code": "CPTR-230",
+            "prerequisites": {
+                "or": [
+                    "CPTR-212",
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Advanced Network Security",
+            "code": "CPTR-444",
+            "prerequisites": {
+                "and": [
+                    "CPTR-328"
+                ]
+            }
+        },
+        {
+            "name": "Cyber Forensics",
+            "code": "CPTR-454",
+            "prerequisites": {
+                "and": [
+                    "CPTR-124"
+                ]
+            }
+        },
+        {
+            "name": "Mobile Application Development",
+            "code": "CPTR-435",
+            "prerequisites": {
+                "or": [
+                    "CPTR-212",
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Web Services",
+            "code": "CPTR-446",
+            "prerequisites": {
+                "or": [
+                    "CPTR-212",
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Application Software Support",
+            "code": "CPTE-316",
+            "prerequisites": {
+                "and": [
+                    "SoC-ADM"
+                ]
+            }
+        },
+        {
+            "name": "Software Evaluation",
+            "code": "CPTE-343",
+            "prerequisites": {
+                "and": [
+                    "CPTR-124"
+                ]
+            }
+        },
+        {
+            "name": "Programming and Scripting for Administration",
+            "code": "CPTE-440",
+            "prerequisites": {
+                "and": [
+                    "CPTR-254",
+                    "CPTR-230"
+                ]
+            }
+        },
+        {
+            "name": "Introduction to Web Design",
+            "code": "COMM-242",
+            "prerequisites": {
+                "or": [
+                    "ARTG-115",
+                    "CPTR-108"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "Introduction to Graphic Design",
+            "code": "ARTG-115",
+            "prerequisites": {
+                "and": [
+                    "ART-109"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "2D Foundations - Plane & Color",
+            "code": "ART-109",
+            "prerequisites": {},
+            "nondepartmental": true
+        },
+        {
+            "name": "Introduction to Web Development",
+            "code": "CPTE-110",
+            "prerequisites": {},
+            "nondepartmental": true
+        },
+        {
+            "name": "Web Programming",
+            "code": "CPTR-212",
+            "prerequisites": {
+                "and": [
+                    "CPTR-124"
+                ],
+                "or": [
+                    "COMM-242",
+                    "CPTE-110"
+                ]
+            },
+            "learningObjectives": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Responsive Design"
+            ]
+        },
+        {
+            "name": "#EssenceOfComputing",
+            "code": "CPTR-108",
+            "prerequisites": {
+                "and": [
+                    "MATH-081",
+                    "Math ACT >= 16"
+                ]
+            }
+        },
+        {
+            "name": "Fundamentals of Programming",
+            "code": "CPTR-124",
+            "prerequisites": {
+                "or": [
+                    "MATH-117",
+                    "Math ACT >= 22"
+                ]
+            }
+        },
+        {
+            "name": "Fundamentals of Software Design",
+            "code": "CPTR-215",
+            "prerequisites": {
+                "and": [
+                    "CPTR-124"
+                ]
+            }
+        },
+        {
+            "name": "Software Development Tools",
+            "code": "CPTR-302",
+            "prerequisites": {
+                "or": [
+                    "CPTR-212",
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Precalculus Trigonometry",
+            "code": "MATH-121",
+            "prerequisites": {
+                "and": [
+                    "MATH-120"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "Calculus I",
+            "code": "MATH-191",
+            "prerequisites": {
+                "or": [
+                    "MATH-120",
+                    "Math ACT >= 24",
+                    "MATH-121"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "Discrete Mathematical Structures",
+            "code": "MATH-280",
+            "prerequisites": {
+                "or": [
+                    "MATH-120",
+                    "MATH-191"
+                ]
+            }
+        },
+        {
+            "name": "Intro to Interactive Media",
+            "code": "ARTI-224",
+            "prerequisites": {
+                "and": [
+                    "ARTG-115"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "Interactive Media",
+            "code": "ARTI-324",
+            "prerequisites": {
+                "or": [
+                    "ARTI-224",
+                    "CPTR-108"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "Advanced Web Programming",
+            "code": "CPTR-456",
+            "prerequisites": {
+                "or": [
+                    "CPTR-212",
+                    "ARTI-324"
+                ]
+            }
+        },
+        {
+            "name": "Data Structures and Algorithms",
+            "code": "CPTR-318",
+            "prerequisites": {
+                "and": [
+                    "SoC-ADM",
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Database Management Systems",
+            "code": "CPTR-319",
+            "prerequisites": {
+                "or": [
+                    "CPTR-212",
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Principles of Networking",
+            "code": "CPTR-328",
+            "prerequisites": {
+                "and": [
+                    "MATH-120"
+                ],
+                "or": [
+                    "CPTR-108",
+                    "CPTR-212",
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Computer Architecture",
+            "code": "CPTR-332",
+            "prerequisites": {
+                "and": [
+                    "CPTR-318"
+                ]
+            }
+        },
+        {
+            "name": "Operating Systems",
+            "code": "CPTR-365",
+            "prerequisites": {
+                "and": [
+                    "CPTR-318"
+                ]
+            }
+        },
+        {
+            "name": "Critical Thinking in Academic Reading & Writing II",
+            "code": "ENGL-102",
+            "prerequisites": {
+                "and": [
+                    "ENGL-101"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "Fundamentals of Critical Thinking in Reading & Writing",
+            "code": "ENGL-100",
+            "prerequisites": {},
+            "nondepartmental": true
+        },
+        {
+            "name": "Critical Thinking in Academic Reading & Writing I",
+            "code": "ENGL-101",
+            "prerequisites": {
+                "or": [
+                    "ENGL-100",
+                    "English ACT >= 18"
+                ]
+            },
+            "nondepartmental": true
+        },
+        {
+            "name": "Technical Writing in Computing (W)",
+            "code": "CPTR-386",
+            "prerequisites": {
+                "and": [
+                    "ENGL-102"
+                ],
+                "or": [
+                    "CPTR-212",
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Organization of Programming Languages",
+            "code": "CPTR-405",
+            "prerequisites": {
+                "and": [
+                    "CPTR-215"
+                ]
+            }
+        },
+        {
+            "name": "Network Security",
+            "code": "CPTR-427",
+            "prerequisites": {
+                "and": [
+                    "CPTR-328"
+                ]
+            }
+        },
+        {
+            "name": "Senior Seminar",
+            "code": "CPTR-486",
+            "prerequisites": {
+                "and": [
+                    "SoC-ADM"
+                ],
+                "or": [
+                    "CPTR-318",
+                    "CPTE-343"
+                ]
+            }
+        },
+        {
+            "name": "Senior Project",
+            "code": "CPTR-488",
+            "prerequisites": {
+                "and": [
+                    "CPTR-486"
+                ]
+            }
+        }
+    ]
+}
