@@ -6,7 +6,7 @@ const CourseNode = (props: NodeProps) => {
     const { getNode, setNodes, setEdges } = useReactFlow()
     const nodeStyle: React.CSSProperties | object = {
         padding: "10px 20px",
-        background: data.nondepartmental ? "#5072A7" : "white",
+        background: data.nondepartmental ? "#5072A7" : data.testingRequirement ? "#ff80ff" : "white",
         borderRadius: "3px",
         display: "flex",
         gap: "5px",
@@ -111,8 +111,8 @@ const CourseNode = (props: NodeProps) => {
                 position={Position.Left}
             />
             <div style={nodeStyle} className={`${(data.hovered || data.highlighted) ? "selected" : ""}`}>
-                <span style={{ fontWeight: "bold", color: data.nondepartmental ? "white" : undefined }} className="courseName">{data.courseName}</span>
-                <span style={{ fontWeight: "bold", color: data.nondepartmental ? "white" : undefined }} className="courseCode">{data.courseCode}</span>
+                <span style={{ fontWeight: "bold", color: data.nondepartmental || data.testingRequirement ? "white" : undefined }} className="courseName">{data.courseName}</span>
+                <span style={{ fontWeight: "bold", color: data.nondepartmental || data.testingRequirement ? "white" : undefined }} className="courseCode">{data.courseCode}</span>
             </div>
             <Handle
                 isConnectable={false}

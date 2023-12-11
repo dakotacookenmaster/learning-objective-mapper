@@ -41,9 +41,9 @@ const LayoutFlow = (props: {
     nodeTypes: NodeTypes
     initialNodes: Node[]
     initialEdges: Edge[]
-    setWarnings: () => void
+    setWarnings: React.Dispatch<React.SetStateAction<{}>>
 }) => {
-    const { initialNodes, initialEdges, nodeTypes } = props
+    const { initialNodes, initialEdges, nodeTypes, setWarnings } = props
     const { fitView } = useReactFlow()
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
@@ -73,7 +73,7 @@ const LayoutFlow = (props: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type CourseNode = {
         data: {
-            courseCode: string,
+            courseCode: string
             prerequisites: {
                 and: string[] | undefined
                 or: string[] | undefined
@@ -91,16 +91,16 @@ const LayoutFlow = (props: {
                     getPrerequisites(node as CourseNode, paths)
                 }
             }
-            
+
             if (course.data.prerequisites.or) {
-                const lastPath = paths[paths.length - 1]
+                const lastPath = paths.splice(paths.length - 1, 1)[0]
                 for (const prereq of course.data.prerequisites.or) {
                     const node = nodes.find((node) => node.id === prereq)
                     paths.push([...lastPath, prereq])
                     getPrerequisites(node as CourseNode, paths)
                 }
             }
-            return paths
+            return paths.map((p) => Array.from(new Set(p)))
         },
         [nodes]
     )
@@ -111,8 +111,51 @@ const LayoutFlow = (props: {
         const departmentalCourses = nodes.filter(
             (node) => !node.data.nondepartmental
         )
+        const warnings = {} as any
+        const nondepartmentalCourses = nodes.filter(
+            (node) => node.data.nondepartmental
+        )
 
-        console.log(`PREREQ FOR: ${departmentalCourses[2].data.courseCode}`, getPrerequisites(departmentalCourses[2] as CourseNode).map(path => path.reverse()))
+        for (let course of departmentalCourses) {
+            const paths = getPrerequisites(course as CourseNode).map((path) =>
+                path.reverse()
+            )
+
+            for (let i = 0; i < paths.length; i++) {
+                // loop over each path
+                let length = paths[i].length
+                let found = 0
+                for (let j = 0; j < paths[i].length; j++) {
+                    // loop over each courseCode
+                    if (
+                        nondepartmentalCourses.find(
+                            (c) => c.data.courseCode === paths[i][j]
+                        )
+                    ) {
+                        found++
+                    }
+                }
+                if (length && found && length === found) {
+                    if(warnings[course.data.courseCode]) {
+                        warnings[course.data.courseCode] = {
+                            ...warnings[course.data.courseCode],
+                            message: `Warning: ${course.data.courseCode} has one or more prerequisite path which are completely nondepartmental.`,
+                            paths: [...warnings[course.data.courseCode].paths as string[], paths[i]],
+                        }
+                    }
+                    warnings[course.data.courseCode] = {
+                        message: `Warning: ${course.data.courseCode} has one or more prerequisite paths which are completely nondepartmental.`,
+                        paths: [paths[i]],
+                    }
+                }
+            }
+            setWarnings((prevWarnings) => {
+                return {
+                    ...prevWarnings,
+                    ...warnings,
+                }
+            })
+        }
     }, [nodes, getPrerequisites])
 
     return (

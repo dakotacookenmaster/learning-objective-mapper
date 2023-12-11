@@ -16,6 +16,8 @@ import LayoutFlow from "./components/LayoutFlow"
 import CourseNode from "./components/CourseNode"
 import data from "./data/data.json"
 import { useState } from "react"
+import SimpleDialog from "./components/Dialog"
+import { Button } from "@mui/material"
 
 const initialNodes: Node[] = data.courses.map((course) => ({
     id: course.code,
@@ -24,11 +26,12 @@ const initialNodes: Node[] = data.courses.map((course) => ({
     data: {
         prerequisites: {
             and: course.prerequisites.and,
-            or: course.prerequisites.or
+            or: course.prerequisites.or,
         },
         courseCode: course.code,
         courseName: course.name,
         nondepartmental: course.nondepartmental,
+        testingRequirement: course.testingRequirement,
         hovered: false,
         highlighted: false,
     },
@@ -45,7 +48,7 @@ const initialEdges: Edge[] = data.courses.reduce(
                     type: ConnectionLineType.SmoothStep,
                     data: {
                         highlighted: false,
-                    }
+                    },
                 })
             }
         }
@@ -59,7 +62,7 @@ const initialEdges: Edge[] = data.courses.reduce(
                     animated: true,
                     data: {
                         highlighted: false,
-                    }
+                    },
                 })
             }
         }
@@ -71,24 +74,35 @@ const initialEdges: Edge[] = data.courses.reduce(
 const nodeTypes: NodeTypes = { courseNode: CourseNode }
 
 const App = () => {
-    const [warnings, setWarnings] = useState([])
+    const [warnings, setWarnings] = useState({})
+    const [isOpen, setIsOpen] = useState(true)
     return (
         <div style={{ width: "100vw", height: "calc(100vh - 100px)" }}>
             <div
                 style={{
                     width: "100%",
                     display: "flex",
-                    justifyContent: "center",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "0px 20px",
+                    boxSizing: "border-box",
+                    gap: "10px"
                 }}
             >
-                <h1>{ data.name }</h1>
+                <h1>{data.name}</h1>
+                <Button sx={{ display: "flex", gap: "10px", alignItems: "center" }} variant="contained" onClick={() => setIsOpen(true)}>View Warnings <div className="count">{ Object.entries(warnings).length }</div></Button>
             </div>
+            <SimpleDialog
+                warnings={warnings}
+                open={isOpen}
+                handleClose={() => setIsOpen(false)}
+            />
             <ReactFlowProvider>
                 <LayoutFlow
                     nodeTypes={nodeTypes}
                     initialNodes={initialNodes}
                     initialEdges={initialEdges}
-                    setWarnings={setWarnings as any}
+                    setWarnings={setWarnings}
                 />
                 <Controls showInteractive={false} />
             </ReactFlowProvider>

@@ -10,25 +10,25 @@
             "name": "English ACT >= 18 / Writing SAT >= 450 / RSAT >= 25",
             "code": "English ACT >= 18",
             "prerequisites": {},
-            "nondepartmental": true
+            "testingRequirement": true
         },
         {
             "name": "Math ACT >= 22 / SAT >= 520 / RSAT >= 540",
             "code": "Math ACT >= 22",
             "prerequisites": {},
-            "nondepartmental": true
+            "testingRequirement": true
         },
         {
             "name": "Math ACT >= 24 / SAT >= 600 / RSAT >= 620",
             "code": "Math ACT >= 24",
             "prerequisites": {},
-            "nondepartmental": true
+            "testingRequirement": true
         },
         {
             "name": "Math ACT >= 16 / SAT >= 390 / RSAT >= 430",
             "code": "Math ACT >= 16",
             "prerequisites": {},
-            "nondepartmental": true
+            "testingRequirement": true
         },
         {
             "name": "Introduction to Algebra & Statistics",
@@ -206,7 +206,6 @@
             "code": "CPTR-108",
             "prerequisites": {
                 "and": [
-                    "MATH-081",
                     "Math ACT >= 16"
                 ]
             }
@@ -265,6 +264,7 @@
         {
             "name": "Discrete Mathematical Structures",
             "code": "MATH-280",
+            "nondepartmental": true,
             "prerequisites": {
                 "or": [
                     "MATH-120",
