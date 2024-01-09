@@ -41,7 +41,8 @@ const LayoutFlow = (props: {
     nodeTypes: NodeTypes
     initialNodes: Node[]
     initialEdges: Edge[]
-    setWarnings: React.Dispatch<React.SetStateAction<{}>>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setWarnings: React.Dispatch<React.SetStateAction<Record<string, any>>>
 }) => {
     const { initialNodes, initialEdges, nodeTypes, setWarnings } = props
     const { fitView } = useReactFlow()
@@ -111,19 +112,20 @@ const LayoutFlow = (props: {
         const departmentalCourses = nodes.filter(
             (node) => !node.data.nondepartmental
         )
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const warnings = {} as any
         const nondepartmentalCourses = nodes.filter(
             (node) => node.data.nondepartmental
         )
 
-        for (let course of departmentalCourses) {
+        for (const course of departmentalCourses) {
             const paths = getPrerequisites(course as CourseNode).map((path) =>
                 path.reverse()
             )
 
             for (let i = 0; i < paths.length; i++) {
                 // loop over each path
-                let length = paths[i].length
+                const length = paths[i].length
                 let found = 0
                 for (let j = 0; j < paths[i].length; j++) {
                     // loop over each courseCode
@@ -156,7 +158,7 @@ const LayoutFlow = (props: {
                 }
             })
         }
-    }, [nodes, getPrerequisites])
+    }, [nodes, getPrerequisites, setWarnings])
 
     return (
         <ReactFlow
